@@ -35,6 +35,28 @@ static const uint8_t PROGMEM INITCMD_M5STACK[] = {
   0x00                                   // End of list
 };
 
+// From https://github.com/m5stack/M5Stack/blob/master/src/utility/ILI9342C_Init.h
+static const uint8_t PROGMEM INITCMD_M5STACKGREY[] = {
+  0xC8, 3, 0xFF, 0x93, 0x42,
+  ILI9341_PWCTR1, 2, 0x12, 0x12
+  ILI9341_PWCTR2, 1, 0x03,
+  0xB0, 1, 0xE0,
+  0xF6, 3, 0x00, 0x01, 0x01,
+  //ILI9341_MADCTL, 1, MAD_MY | MAD_MV | MAD_BGR
+  ILI9341_MADCTL, 1, MAD_BGR
+  ILI9341_PIXFMT, 1, 0x55,
+  ILI9341_DFUNCTR , 3, 0x08, 0x82, 0x27, // Display Function Control
+  ILI9341_GMCTRN1, 15, 0x00, 0x0C, 0x11, 0x04, 0x11, 0x08,
+                       0x37, 0x89, 0x4C, 0x06, 0x0C, 0x0A,
+                       0x2E, 0x34, 0x0F,
+  ILI9341_GMCTRN1, 15, 0x00, 0x0B, 0x11, 0x05, 0x13, 0x09,
+                       0x33, 0x67, 0x48, 0x07, 0x0E, 0x0B,
+                       0x2E, 0x33, 0x0F,
+  ILI9341_SLPOUT  , 0x80,                // Exit Sleep
+  ILI9341_DISPON  , 0x80,                // Display on
+  0x00                                   // End of list
+}
+
 static const uint8_t PROGMEM INITCMD_TFT[] = {
   0xEF, 3, 0x03, 0x80, 0x02,
   0xCF, 3, 0x00, 0xC1, 0x30,
