@@ -25,6 +25,7 @@ ili9341 = ili9341_ns.class_(
 ILI9341M5Stack = ili9341_ns.class_("ILI9341M5Stack", ili9341)
 ILI9341TFT24 = ili9341_ns.class_("ILI9341TFT24", ili9341)
 ILI9341TFT24R = ili9341_ns.class_("ILI9341TFT24R", ili9341)
+ILI9341M5StackGrey = ili9341_ns.class_("ILI9341M5StackGrey", ili9341)
 
 ILI9341Model = ili9341_ns.enum("ILI9341Model")
 ILI9341ColorMode = ili9341_ns.enum("ILI9341ColorMode")
@@ -64,6 +65,8 @@ async def to_code(config):
         lcd_type = ILI9341TFT24
     if config[CONF_MODEL] == "TFT_2.4R":
         lcd_type = ILI9341TFT24R
+    if config[CONF_MODEL] == "M5STACKGREY":
+        lcd_type = ILI9341M5StackGrey
     rhs = lcd_type.new()
     var = cg.Pvariable(config[CONF_ID], rhs)
 

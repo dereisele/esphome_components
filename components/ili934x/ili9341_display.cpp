@@ -299,5 +299,13 @@ void ILI9341TFT24R::initialize() {
   this->height_ = 240;
 }
 
+//   M5Stack display
+void ILI9341M5StackGrey::initialize() {
+  this->init_lcd_(INITCMD_M5STACKGREY);
+  this->width_ = 320;
+  this->height_ = 240;
+  this->invert_display_(true);
+}
+
 }  // namespace ili9341
 }  // namespace esphome
